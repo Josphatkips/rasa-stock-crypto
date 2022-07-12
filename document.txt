@@ -1,0 +1,5 @@
+1. server setup
+2. install docker
+3. set up action server docker image
+4. create docker compose file
+5. run docker compose up -d
