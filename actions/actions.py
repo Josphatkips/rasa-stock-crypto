@@ -52,6 +52,15 @@ class ActionCrypto(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Fetching Stock price for: "+tracker.get_slot('stock'))
+
+        
+        symbol=tracker.get_slot('coin')+'USDT'
+        querystring = {"symbol":symbol}
+        response = requests.request("GET", 'https://api.binance.com/api/v3/ticker/price', params=querystring)
+
+        rs=response.json()
+
+        # print(rs['price'])
+        dispatcher.utter_message(text="Price of : "+str(tracker.get_slot('coin')) +' is: '+str(rs['price']))
 
         return [AllSlotsReset()]

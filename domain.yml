@@ -1,7 +1,7 @@
 version: "3.1"
 
 intents:
-  - greet
+  - get_started
   - goodbye
   - affirm
   - deny
@@ -14,6 +14,7 @@ intents:
 actions:
   - action_crypto_price
   - action_stock_price
+  - utter_satisfied
 
 forms:
   crypto_form:
@@ -68,6 +69,13 @@ responses:
       payload: "/crypto_price"
     - title: "Stock prices"
       payload: "/stock_price"
+  utter_satisfied:
+  - text: "Do you need any other service"
+    buttons:
+    - title: "Yes"
+      payload: "/get_started"
+    - title: "No"
+      payload: "/goodbye"
 
 
 

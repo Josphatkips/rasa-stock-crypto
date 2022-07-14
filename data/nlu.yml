@@ -1,7 +1,7 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: get_started
   examples: |
     - hey
     - hello
@@ -16,6 +16,8 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - get started
+    - /start
 
 - intent: goodbye
   examples: |
