@@ -11,8 +11,9 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import AllSlotsReset
+from rasa_sdk.events import AllSlotsReset,FollowupAction
 import requests
+
 #
 #
 class ActionStock(Action):
@@ -52,6 +53,14 @@ class ActionCrypto(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Fetching Stock price for: "+tracker.get_slot('stock'))
+       
 
-        return [AllSlotsReset()]
+        url = 'https://api.binance.com/api/v3/ticker/price'
+        symbol=str(tracker.get_slot('coin'))+"USDT"
+
+        querystring = {"symbol":symbol}
+        response = requests.get(url,params=querystring).json()
+        dispatcher.utter_message(text="The price for "+str(tracker.get_slot('coin'))+' is: '+ str(response['price']))
+        
+
+        return [AllSlotsReset(),FollowupAction('utter_satisfied')]
