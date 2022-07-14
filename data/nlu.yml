@@ -16,6 +16,13 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - get started
+    - /start
+- intent: get_started
+  examples: |
+    - Hello
+    - get started
+    - I need help
 
 - intent: goodbye
   examples: |

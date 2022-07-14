@@ -10,10 +10,13 @@ intents:
   - bot_challenge
   - stock_price
   - crypto_price
+  - i_am_okay
+  - get_started
 
 actions:
   - action_crypto_price
   - action_stock_price
+  - utter_satisfied
 
 forms:
   crypto_form:
@@ -68,6 +71,13 @@ responses:
       payload: "/crypto_price"
     - title: "Stock prices"
       payload: "/stock_price"
+  utter_satisfied:
+  - text: "Need any other service"
+    buttons:
+    - title: "No"
+      payload: "/goodbye"
+    - title: "Yes"
+      payload: "/get_started"
 
 
 
