@@ -7,7 +7,30 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="rasa-chat-widget" data-websocket-url="https://rasas.roycetechnologies.co.ke/"></div>
-<script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script>
+    <!-- <div id="rasa-chat-widget" data-websocket-url="http://18.142.231.114/"></div>
+<script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script> -->
+<script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+    (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+      // Replace 1.x.x with the version that you want
+      (e.async = !0),
+      (e.onload = () => {
+        window.WebChat.default(
+          {
+            customData: { language: "en" },
+            socketUrl: "http://18.142.231.114/",
+            initPayload:'get_started',
+            title:"Rasa Finance",
+            subtitle:"Find crypto and Stock pricing"
+            // add other props here
+          },
+          null
+        );
+      }),
+      t.insertBefore(e, t.firstChild);
+  })();
+  </script>
 </body>
 </html>
