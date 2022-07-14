@@ -9,7 +9,8 @@ services:
     command:
       - run
       - --enable-api
+      - --cors
+      - "*"
   app:
     image: royceltd/rasa-stock-crypto
-    ports: 
-      - 5055:5055
+    expose: [5055]

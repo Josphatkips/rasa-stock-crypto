@@ -29,49 +29,39 @@ stories:
 #   - intent: deny
 #   - action: utter_goodbye
 
-# - story: get prices
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: utter_welcome
-#   - checkpoint: get_prices
+- story: get prices
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_welcome
+  - checkpoint: get_prices
 
-# - story: crypto prices
-#   steps:
-#   - checkpoint: get_prices
-#   - intent: crypto_price
-#   - action: crypto_form
-#   - active_loop: crypto_form
-#   - slot_was_set:
-#     - requested_slot: coin
-#   - slot_was_set:
-#     - coin: BTC
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_crypto_price
-#   - action: utter_satisfied
-#   - checkpoint: satisfied
+- story: crypto prices
+  steps:
+  - checkpoint: get_prices
+  - intent: crypto_price
+  - action: crypto_form
+  - active_loop: crypto_form
+  - slot_was_set:
+    - requested_slot: coin
+  - slot_was_set:
+    - coin: BTC
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_crypto_price
 
-# - story: Stock prices
-#   steps:
-#   - checkpoint: get_prices
-#   - intent: stock_price
-#   - action: stock_form
-#   - active_loop: stock_form
-#   - slot_was_set:
-#     - requested_slot: stock
-#   - slot_was_set:
-#     - stock: tesla
-#   - slot_was_set:
-#     - requested_slot: null
-#   - active_loop: null
-#   - action: action_stock_price
-#   - action: utter_satisfied
-#   - checkpoint: satisfied
-
-# - story: satisfied
-#   steps:
-#   - checkpoint: satisfied
-#   - intent: i_am_okay
-#   - action: utter_goodbye
+- story: Stock prices
+  steps:
+  - checkpoint: get_prices
+  - intent: stock_price
+  - action: stock_form
+  - active_loop: stock_form
+  - slot_was_set:
+    - requested_slot: stock
+  - slot_was_set:
+    - stock: tesla
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_stock_price
