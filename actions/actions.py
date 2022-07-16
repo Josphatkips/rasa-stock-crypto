@@ -55,12 +55,17 @@ class ActionCrypto(Action):
 
         
         symbol=tracker.get_slot('coin')+'USDT'
+        symbol=symbol.upper()
         querystring = {"symbol":symbol}
         response = requests.request("GET", 'https://api.binance.com/api/v3/ticker/price', params=querystring)
 
         rs=response.json()
+        # print(tracker.get_slot('coin'))
+        # print(rs)
+        # print(symbol)
 
         # print(rs['price'])
-        dispatcher.utter_message(text="Price of : "+str(tracker.get_slot('coin')) +' is: '+str(rs['price']))
+        price=str(rs['price'])
+        dispatcher.utter_message(text="Price of : "+str(tracker.get_slot('coin')) +' is: '+price)
 
         return [AllSlotsReset()]

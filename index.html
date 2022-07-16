@@ -7,20 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div id="rasa-chat-widget" data-websocket-url="http://18.142.231.114/"></div>
-<script src="https://unpkg.com/@rasahq/rasa-chat" type="application/javascript"></script> -->
+
 <script>!(function () {
     let e = document.createElement("script"),
       t = document.head || document.getElementsByTagName("head")[0];
     (e.src =
       "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
-      // Replace 1.x.x with the version that you want
+    
       (e.async = !0),
       (e.onload = () => {
         window.WebChat.default(
           {
             customData: { language: "en" },
-            socketUrl: "http://18.142.231.114/",
+            socketUrl: "http://localhost:5005/",
             initPayload:'get_started',
             title:"Rasa Finance",
             subtitle:"Find crypto and Stock pricing"
@@ -34,3 +33,5 @@
   </script>
 </body>
 </html>
+
+ssh -i "webserver-rasa.pem" ubuntu@ec2-18-141-188-160.ap-southeast-1.compute.amazonaws.com
